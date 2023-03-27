@@ -1,5 +1,20 @@
 .loader {
   position: fixed;
+  border: 2px solid #61a7e5;
+  border-radius: 50%;
+  border-left-color: #fff;
+  width: 30px;
+  height: 30px;
   top: 20px;
   right: 20px;
+  animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
