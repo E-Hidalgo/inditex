@@ -12,7 +12,6 @@ const DetailsTable = ({ episodes }) => {
 
         return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
-    console.log(episodes)
 
     const data = React.useMemo(
         () =>
