@@ -8,7 +8,7 @@ const API_URL = 'https://api.allorigins.win/raw?url=https://itunes.apple.com/us/
 
 const PodcastList = () => {
 
-    const [podcasts, setPodcasts] = useState(null)
+    const [podcasts, setPodcasts] = useState([])
     const [loading, setLoading] = useState(true);
     const [searchInput, setSearchInput] = useState('');
 
