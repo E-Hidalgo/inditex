@@ -16,7 +16,7 @@ const EpisodeDetail = () => {
         if (storedEpisodes) {
             setEpisodes(storedEpisodes)
         } else {
-            setEpisodes()
+            setEpisodes([])
         }
         setLoading(false)
     }, [])
@@ -30,12 +30,12 @@ const EpisodeDetail = () => {
             ) : (
                 <div className="episode__view">
                     <Sidebar podcastsData={podcasts} />
-                    {episode && (
+                    {episodes && episode && (
                         <div className="episode__card">
-                            <h2>{episode.trackName}</h2>
-                            <p>{episode.description}</p>
+                            <h2>{episode?.trackName}</h2>
+                            <p>{episode?.description}</p>
                             <audio controls>
-                                <source src={episode.previewUrl} type="audio/mpeg" />
+                                <source src={episode?.previewUrl} type="audio/mpeg" />
                             </audio>
                         </div>
                     )}
