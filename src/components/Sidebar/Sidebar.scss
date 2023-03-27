@@ -1,0 +1,43 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  height: fit-content;
+  -webkit-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  -moz-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  border-radius: 3px;
+  padding: 1rem 1rem;
+
+  & img {
+    display: block;
+    align-self: center;
+    width: 150px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    margin: 1rem;
+  }
+
+  &__artist {
+    border-top: 1px solid #b9b6b69a;
+    border-bottom: 1px solid #b9b6b69a;
+    padding: 0.5rem 0rem;
+
+    & p {
+      margin-top: 0.2rem;
+      @extend .xs;
+    }
+  }
+
+  &__description {
+    padding: 1rem 0rem;
+
+    & h5 {
+      margin-bottom: 0.5rem;
+    }
+
+    & p {
+      @extend .xs;
+    }
+  }
+}
