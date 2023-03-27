@@ -1,0 +1,74 @@
+.podcast {
+  min-width: 100%;
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+
+    & input {
+      padding: 0.5rem 0.3rem;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid #33333385;
+    }
+
+    & p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(17, 128, 246, 0.796);
+      border-radius: 10px;
+      width: 40px;
+      height: 25px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 6rem 2rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    display: flex;
+    min-width: 300px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    padding: 3rem 0.8rem 1rem 0.8rem;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+    -moz-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+    box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+
+    & img {
+      position: absolute;
+      top: -40px;
+      border-radius: 50%;
+      border: 1px solid #6161618c;
+      margin-bottom: 2rem;
+      width: 80px;
+      height: 80px;
+    }
+
+    &__name {
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    &__author {
+      @extend .xs;
+
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}

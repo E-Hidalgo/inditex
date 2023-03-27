@@ -1,0 +1,31 @@
+.episode__view {
+  display: inline-flex;
+  width: 100%;
+  gap: 3rem;
+}
+
+.episode__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: fit-content;
+  width: 100%;
+  padding: 1.7rem;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  -moz-box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+
+  & h2 {
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    @extend .xs;
+    margin-bottom: 2rem;
+  }
+
+  & audio {
+    width: 100%;
+  }
+}

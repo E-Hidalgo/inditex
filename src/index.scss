@@ -1,0 +1,51 @@
+// Normalize
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 0 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+// Layout
+
+@import "./assets/scss/layout/Typography.scss";
+@import "./assets/scss/layout/Header.scss";
+
+// Pages
+
+@import "./assets/scss/PodcastList.scss";
+@import "./assets/scss/PodcastView.scss";
+@import "./assets/scss/EpisodeView.scss";
+
+// Components
+
+@import "./components/Sidebar/Sidebar.scss";
+@import "./assets//scss/components/Loader.scss";

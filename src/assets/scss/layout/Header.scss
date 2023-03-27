@@ -1,0 +1,10 @@
+.header {
+  box-shadow: 1px 2px 5px 4px rgba(194, 190, 194, 1);
+  margin-bottom: 2rem;
+  padding: 1rem 0rem;
+
+  & h1 {
+    color: #61a7e5;
+    padding-left: 2rem;
+  }
+}
