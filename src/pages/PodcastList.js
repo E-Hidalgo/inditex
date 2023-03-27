@@ -8,15 +8,17 @@ const API_URL = 'https://api.allorigins.win/raw?url=https://itunes.apple.com/us/
 
 const PodcastList = () => {
 
-    const [podcasts, setPodcasts] = useState([])
-    const [loading, setLoading] = useState(true);
-    const [searchInput, setSearchInput] = useState('');
+    // Setting up the state variables using useState
+    const [podcasts, setPodcasts] = useState([]); // State for storing the list of podcasts
+    const [loading, setLoading] = useState(true); // State for tracking if the data is being fetched or not
+    const [searchInput, setSearchInput] = useState(''); // State for tracking the value of the search input
 
+    // useEffect to fetch the data from the API
     useEffect(() => {
         setLoading(true);
         axios.get(API_URL)
             .then(response => {
-                setPodcasts(response.data.feed.entry)
+                setPodcasts(response.data.feed.entry);
                 setLoading(false);
             })
             .catch(error => {
@@ -25,10 +27,12 @@ const PodcastList = () => {
             });
     }, []);
 
+    // useEffect to store the podcast data in localStorage
     useEffect(() => {
-        localStorage.setItem('podcasts', JSON.stringify(podcasts))
-    }, [podcasts])
+        localStorage.setItem('podcasts', JSON.stringify(podcasts));
+    }, [podcasts]);
 
+    // useMemo to filter the list of podcasts based on the searchInput value
     const filteredPodcasts = useMemo(() => {
         if (podcasts) {
             return podcasts.filter(podcast => {
@@ -39,19 +43,25 @@ const PodcastList = () => {
         }
     }, [podcasts, searchInput]);
 
+    // Function to update the searchInput state on input change
     const handleInputChange = (event) => {
         setSearchInput(event.target.value);
     }
 
     return (
         <div style={{ width: "100%" }}>
+            {/* Displaying a loader if data is being fetched */}
             {loading ? (
                 <Loader />
             ) : (
                 <>
+                    {/* Displaying the search input component */}
                     <SearchInput filteredPodcasts={filteredPodcasts} searchInput={searchInput} handleInputChange={handleInputChange} />
+
+                    {/* Displaying the list of podcasts */}
                     <ul className='podcast__grid'>
                         {filteredPodcasts.map((podcast, index) => (
+                            // Linking each podcast to its individual page
                             <Link key={index} to={`/podcast/${podcast['id'].attributes['im:id']}`}>
                                 <li className="podcast__card">
                                     <img src={podcast['im:image'][2].label} alt="podcast-thumbnail" />
@@ -65,6 +75,7 @@ const PodcastList = () => {
             )}
         </div>
     );
+
 };
 
 export default PodcastList;

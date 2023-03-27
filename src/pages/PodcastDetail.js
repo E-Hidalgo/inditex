@@ -6,14 +6,17 @@ import { useParams } from 'react-router-dom';
 import Counter from '../components/Counter/Counter';
 import Loader from '../components/Loader/Loader';
 
-
 const PodcastDetail = () => {
 
-    const [podcasts, setPodcasts] = useState()
-    const [episodes, setEpisodes] = useState()
+    // Define the state variables using the useState hook
+    const [podcasts, setPodcasts] = useState();
+    const [episodes, setEpisodes] = useState();
     const [loading, setLoading] = useState(true);
-    const { podcastId } = useParams()
 
+    // Extract the podcast ID from the URL params using the useParams hook
+    const { podcastId } = useParams();
+
+    // Fetch podcast and episode data from iTunes API when component mounts
     useEffect(() => {
         setLoading(true);
         axios.get(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`)}`)
@@ -32,10 +35,10 @@ const PodcastDetail = () => {
             });
     }, [setEpisodes, podcastId]);
 
-
     return (
         <div style={{ width: "100%" }}>
             {loading ? (
+                // Show a loader if the component is still loading data
                 <Loader />
             ) : (
                 <div className='podcast__view'>
